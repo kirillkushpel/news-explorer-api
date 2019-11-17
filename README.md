@@ -1,7 +1,7 @@
 # news-explorer-api
 
-[api.news-explorer.ml]:http://api.news-explorer.ml -- API для работы с новостями и юзерами
-[news-explorer.ml]:http://news-explorer.ml -- фронтенд приложения
+http://api.news-explorer.ml -- API для работы с новостями и юзерами
+http://news-explorer.ml -- фронтенд приложения
 
 Реализовано:
 
