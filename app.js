@@ -7,7 +7,9 @@ const cookieParser = require('cookie-parser')
 const rateLimit = require('express-rate-limit')
 const usersRoute = require('./routes/users')
 const articlesRoute = require('./routes/articles')
+const cors = require('cors')
 const auth = require('./middlewares/auth')
+const { createUser, login, logout } = require('./controllers/auth')
 const { requestLogger, errorLogger } = require('./middlewares/logger')
 const { createUser, login } = require('./controllers/auth')
 const Error404 = require('./errors/error404')
@@ -26,6 +28,10 @@ const limiter = rateLimit({
 
 const app = express()
 app.set('trust proxy', 1)
+app.use(cors(({
+  credentials: true,
+  origin: true,
+})))
 app.use(limiter)
 app.use(helmet())
 
@@ -61,6 +67,8 @@ app.post('/signin', celebrate({
     email: Joi.string().email().required(),
   }),
 }), login)
+
+app.post('/logout', logout)
 
 app.use(auth)
 

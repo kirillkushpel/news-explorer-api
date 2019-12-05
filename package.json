@@ -16,6 +16,7 @@
     "eslint-plugin-import": "^2.18.2"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "bcryptjs": "^2.4.3",
     "celebrate": "^10.0.1",
     "cookie-parser": "^1.4.4",
