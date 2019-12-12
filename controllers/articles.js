@@ -16,7 +16,7 @@ module.exports.createArticle = (req, res, next) => {
 }
 
 module.exports.getAllArticles = (req, res, next) => {
-  Article.find({})
+  Article.find({ owner: req.user._id })
     .populate('owner')
     .then((articles) => res.send(articles))
     .catch(() => next(new Error500('Ошибка при чтении всех статей')))
